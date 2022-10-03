@@ -2,12 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { AppRegistry } from "react-native";
-import { imageFromHtmlFeed, formatHTML } from "../utils/utils";
+import {  formatHTML } from "../utils/utils";
 
 const FeedItem = ({ item }) => {
-  const img = imageFromHtmlFeed(item.description);
+  const img =  item.enclosures[0].url;
   const description = formatHTML(item.description);
-  console.log(description);
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>

@@ -18,7 +18,6 @@ function useFeed(feed) {
     }, [])
 
     useEffect(() => {
-       console.log(feed)
             fetch(feed)
             .then((response) => response.text())
             .then((responseData) => rssParser.parse(responseData))
