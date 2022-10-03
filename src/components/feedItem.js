@@ -2,26 +2,15 @@ import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Image} from "react-native"
 
 import {AppRegistry} from 'react-native';
+import {imageFromHtmlFeed} from "../utils/utils";
 
 const FeedItem = ({item}) => {
-    let img = '';
-    const itemshtml = item.description;
 
-    var regex = (/(https?:\/\/[^ ]*\.(?:gif|png|jpg|jpeg))/i);
-
-    if(new RegExp(regex).test(itemshtml)){
-     let imgurl = regex.exec(itemshtml)[1];
-    
-    console.log(imgurl);
-    
-    if (imgurl)
-    img =imgurl;
-}
-  
+    const img = imageFromHtmlFeed(item.description);
     return (
         <View style={styles.container}>
-        <Image style={styles.image} source={{uri: img}} />
-            <View style={styles.textContainer}>
+        <Image style={styles.image} source={{uri: img}}/>
+             <View style={styles.textContainer}>
                 <Text style={styles.title}>{item.title}</Text>
                 
             </View>
