@@ -27,15 +27,7 @@ function Stack () {
 const Tab = createBottomTabNavigator();
 
 function Tabs() {
-    const items = useSelector(state => state.feedReducer.items);
-    const [count, setCount] = useState(0);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        if (items.items) {
-            setCount(items.items.length);
-            setLoading(false);
-        }
-    }, [items.items]);
+   
 
   return (
     <Tab.Navigator
