@@ -2,7 +2,7 @@ import React from "react"
 import {View, Text, StyleSheet, TouchableOpacity} from "react-native"
 
 
-const StackScreen = () => {
+const SettingsScreen = () => {
     return (
         <View>
             <Text
@@ -11,10 +11,10 @@ const StackScreen = () => {
                     textAlign: "center",
                     marginTop: "20%"
                 }}
-            > Stack Screen
+            > Settings Screen
             </Text>
         </View>
     )
 }
 
-export default StackScreen;
+export default SettingsScreen;

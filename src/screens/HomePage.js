@@ -13,25 +13,7 @@ const HomeScreen = () => {
         "http://feeds.weblogssl.com/xatakandroid"
       );
 
-      console.log(items);
-    // const [data, setData] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-
-    // useEffect(() => {
-    //     fetch('http://www.9to5mac.com/feed/')
-    //         .then((response) => response.text())
-    //         .then((responseData) => rssParser.parse(responseData))
-    //         .then((rss) => {
-
-    //             setData(rss);
-    //             rss.items.forEach(item => {
-    //                 console.log('');
-    //             });
-
-    //         });
-    // }, []);
-
+    
     const navigation = useNavigation();
 
     return (
@@ -45,7 +27,7 @@ const HomeScreen = () => {
             
              
             
-        // </FlatList>
+       
         
     )
 }
