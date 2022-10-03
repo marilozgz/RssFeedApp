@@ -9,3 +9,11 @@ export const imageFromHtmlFeed = (html) => {
     return null;
   }
 };
+
+export const formatHTML = (html) => {
+  if (html === null || html === "") return false;
+  else html = html.toString();
+
+  const stringWithoutTags=  html.replace(/(<([^>]+)>)/gi, "");
+  return stringWithoutTags.substring(0, 200).trim();
+};
