@@ -1,65 +1,38 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-
-import { AppRegistry } from "react-native";
-import {  formatHTML } from "../utils/utils";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { imageFromHtmlFeed, formatHTML } from "../utils/utils";
+import {styles} from "./feedItem-styles.js";
 
 const FeedItem = ({ item }) => {
-  const img =  item.enclosures[0].url;
+  const navigation = useNavigation();
+  let image = "";
+
+  //We are using the imageFromHtmlFeed function to get the image from the html content because the rss feed does not provide the image url
+  //in some cases the RSS doesn't provide the standar tag with the image in enclosure, so we need to get the image from the html content
+  if (item.enclousure > 0) {
+    image = item.enclosure[0].url;
+  } else {
+    image = imageFromHtmlFeed(item.description);
+  }
+
+  
   const description = formatHTML(item.description);
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate("Details", { item })}
+    >
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={{ uri: img }} />
+        <Image style={styles.image} source={{ uri: image }} />
       </View>
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    margin: 10,
-    padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  imageContainer: {
-    flex: 0.5,
-    justifyContent: "center",
-    alignItems: "stretch",
-  },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
-  },
-  textContainer: {
-    flex: 1,
-    flexDirection: "column",
-    marginLeft: 10,
-  },
-  title: {
-    fontSize: 15,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 12,
-  },
-});
 
 export default FeedItem;

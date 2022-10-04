@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import  HomeScreen  from "./src/screens/HomePage";
-import { useSelector } from 'react-redux';
-import { useState } from "react";
+import  HomeScreen  from "./src/screens/Home/HomePage";
+import  FeedDetailScreen  from "./src/screens/FeedDetails/FeedDetailPage";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const StackNavigator = createNativeStackNavigator();
@@ -19,6 +18,10 @@ function Stack () {
     <StackNavigator.Screen
         name="RSS Feed App"
         component={HomeScreen}
+    />
+    <StackNavigator.Screen
+        name="Details"
+        component={FeedDetailScreen}
     />
   
 </StackNavigator.Navigator>

@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "expo": "~46.0.13",
     "expo-status-bar": "~1.4.0",
+    "moment": "^2.29.4",
     "react": "18.0.0",
     "react-native": "0.69.6",
     "react-native-render-html": "^4.2.5",

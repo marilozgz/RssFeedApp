@@ -2,7 +2,6 @@ import React from "react";
 import Navigator from "./Navigator";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "@redux-saga/core";
-import { applyMiddleware } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import feedReducer from "./src/slices/feedSlice";

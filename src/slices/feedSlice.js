@@ -6,6 +6,7 @@ const feedSlice = createSlice({
         isRefreshing: false,
         refreshItem: null,
         items: [],
+        filteredItems: [],
         url: ''
     },
     reducers: {
@@ -19,10 +20,15 @@ const feedSlice = createSlice({
         },
         fetchFeedFailed: (state) => {
             state.isRefreshing = false;
-        }
+        },
+        searchByName: (state, { payload }) => {
+   
+            state.items.filteredItems = state.items.items.filter(item => item.title.toLowerCase().includes(payload.toLowerCase()))
+        },
+        
     }
 });
 
-export const { fetchFeeds,fetchFeedsSuccess,fetchFeedFailed } = feedSlice.actions;
+export const { fetchFeeds,fetchFeedsSuccess,fetchFeedFailed,searchByName } = feedSlice.actions;
 
 export default feedSlice.reducer;
