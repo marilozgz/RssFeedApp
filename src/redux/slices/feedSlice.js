@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+// First, create the thunk
 
+  
 const feedSlice = createSlice({
     name: "feeds",
     initialState: {
@@ -25,10 +27,12 @@ const feedSlice = createSlice({
    
             state.items.filteredItems = state.items.items.filter(item => item.title.toLowerCase().includes(payload.toLowerCase()))
         },
+     
+        
         
     }
 });
 
-export const { fetchFeeds,fetchFeedsSuccess,fetchFeedFailed,searchByName } = feedSlice.actions;
+export const { fetchFeeds,fetchFeedsSuccess,fetchFeedFailed,searchByName} = feedSlice.actions;
 
 export default feedSlice.reducer;

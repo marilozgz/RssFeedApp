@@ -1,26 +1,29 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, FlatList, TextInput } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFeeds, searchByName } from "../../slices/feedSlice";
+import {
+  fetchFeeds,
+  searchByName,
+  fetchFeedsThunk,
+} from "../../redux/slices/feedSlice";
 
 //Import other components
 import FeedItem from "../../components/feedItem";
 
 //Import styles
-import {styles} from "./HomePage-styles.js";
+import { styles } from "./HomePage-styles.js";
 
 const HomeScreen = () => {
   const items = useSelector((state) => state.feedReducer.items);
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchFeeds("https://www.9to5mac.com/feed/"));
   }, [dispatch]);
 
   //Searchbar created with TextInput component
   //searchByName action to filter the items
-  
+
   return (
     <View>
       <View style={styles.searchbarContainer}>
@@ -40,7 +43,5 @@ const HomeScreen = () => {
     </View>
   );
 };
-
-
 
 export default HomeScreen;

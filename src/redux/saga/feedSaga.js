@@ -1,6 +1,7 @@
-import {call, put, takeEvery} from 'redux-saga/effects';
-import {fetchFeedsSuccess, fetchFeedFailed} from '../slices/feedSlice';
-import {getRss} from '../api/feedApi';
+import {call, put, takeEvery, takeLatest} from 'redux-saga/effects';
+import {fetchFeedsSuccess, fetchFeedFailed,fetchFeedsThunk} from '../slices/feedSlice';
+import {getRss} from '../../api/feedApi';
+
 
 function* fetchFeedSaga(action) {
     try{
