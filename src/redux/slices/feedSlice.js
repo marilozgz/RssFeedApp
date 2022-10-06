@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-// First, create the thunk
 
+//Slice creation of the feed, with the initial state and the reducers
   
 const feedSlice = createSlice({
     name: "feeds",

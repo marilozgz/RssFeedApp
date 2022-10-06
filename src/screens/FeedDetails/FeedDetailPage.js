@@ -19,11 +19,8 @@ function FeedDetailScreen({ route }) {
   //in some cases the RSS doesn't provide the standar tag with the image in enclosure, so we need to get the image from the html content
   let image = "";
   const description = fullHtml(item.description);
-  if (item.enclousure > 0) {
-    image = item.enclosure[0].url;
-  } else {
-    image = imageFromHtmlFeed(item.description);
-  }
+  item.enclousure > 0 ? image = item.enclosure[0].url : image = imageFromHtmlFeed(item.description);
+  
   //Navigate to the url of the feed in the browser
   const onPress = () => {
     const url = item.links[0].url;

@@ -10,7 +10,7 @@ import { fetchFeeds } from "./src/redux/slices/feedSlice";
 const StackNavigator = createNativeStackNavigator();
 
 function Stack() {
-  // we use dispatch to call the action, and we use useEffect to call the action only once
+  // we use dispatch to call the action to get the data, and we use useEffect to call the action only once
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFeeds("https://www.9to5mac.com/feed/"));
