@@ -3,7 +3,7 @@ import {
   fetchFeedsSuccess,
   fetchFeedFailed,
 } from "../slices/feedSlice";
-import { getRss } from "../../api/feedApi";
+import { getRss } from "../../service/fetchRss";
 
 function* fetchFeedSaga(action) {
   try {
