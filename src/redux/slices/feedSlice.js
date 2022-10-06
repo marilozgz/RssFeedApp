@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const feedSlice = createSlice({
     name: "feeds",
     initialState: {
-        isRefreshing: false,
+        isLoading: true,
         refreshItem: null,
         items: [],
         filteredItems: [],
@@ -13,15 +13,15 @@ const feedSlice = createSlice({
     },
     reducers: {
         fetchFeeds: (state) => {
-            state.isRefreshing = true;
+            state.isLoading = true;
         },
         fetchFeedsSuccess: (state, action) => {
 
-            state.isRefreshing = false;
+            state.isLoading = false;
             state.items = action.payload;
         },
         fetchFeedFailed: (state) => {
-            state.isRefreshing = false;
+            state.isLoading = false;
         },
         searchByName: (state, { payload }) => {
    
