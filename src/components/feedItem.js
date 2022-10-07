@@ -10,9 +10,8 @@ const FeedItem = ({ item }) => {
 
   //We are using the imageFromHtmlFeed function to get the image from the html content because the rss feed does not provide the image url
   //in some cases the RSS doesn't provide the standar tag with the image in enclosure, so we need to get the image from the html content
-  item.enclousure > 0 ? image = item.enclosure[0].url : image = imageFromHtmlFeed(item.description);
-  
-
+  item.enclosures.length > 0 ? (image = item.enclosures[0].url) : (image = imageFromHtmlFeed(item.content));
+   
   const description = formatHTML(item.description);
   return (
     <TouchableOpacity
