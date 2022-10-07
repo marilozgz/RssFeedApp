@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
   actualRSSContainer: {
     flex: 1,
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
